@@ -16,6 +16,11 @@ export class StudentsComponent implements OnInit {
       this.studentName = '';   // เคลียร์ช่อง input
     }
   }
+
+   removeStudent(index: number) {
+    this.students.splice(index, 1);
+  }
+  
   constructor() { }
 
   ngOnInit() {

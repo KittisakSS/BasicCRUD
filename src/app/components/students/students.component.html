@@ -1,6 +1,6 @@
 <div class="container">
   <h2>เพิ่มชื่อนักเรียน</h2>
-  
+
   <form (ngSubmit)="addStudent()" #studentForm="ngForm">
     <label for="name">ชื่อนักเรียน:</label>
     <input 
@@ -15,6 +15,10 @@
 
   <h3>รายชื่อนักเรียน</h3>
   <ul>
-    <li *ngFor="let student of students">{{ student }}</li>
+    <li *ngFor="let student of students; let i = index">
+      {{ student }}
+       <button class="eval-btn" (click)="evaluateStudent(student)">ประเมิน</button>
+      <button  class="delete-btn" (click)="removeStudent(i)">ลบ</button>
+    </li>
   </ul>
 </div>

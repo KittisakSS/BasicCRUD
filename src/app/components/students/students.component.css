@@ -2,15 +2,16 @@
   max-width: 500px;
   margin: 30px auto;
   padding: 20px;
-  background-color: #f8f9fa; /* สีพื้นหลังอ่อน */
+  background-color: #1e1e1e; /* พื้นหลังเข้ม */
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   font-family: 'Segoe UI', sans-serif;
+  color: #f1f1f1; /* ตัวหนังสือสีอ่อน */
 }
 
 h2, h3 {
   text-align: center;
-  color: #333;
+  color: #f5f5f5;
 }
 
 form {
@@ -22,26 +23,28 @@ form {
 label {
   font-weight: bold;
   margin-bottom: 5px;
-  color: #555;
+  color: #cccccc;
 }
 
 input[type="text"] {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   border-radius: 8px;
   font-size: 16px;
+  background-color: #2c2c2c;
+  color: #fff;
   transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus {
-  border-color: #007bff;
+  border-color: #00bfff;
   outline: none;
 }
 
 button {
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: #00bfff;
+  color: #000;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -50,11 +53,12 @@ button {
 }
 
 button:hover:not([disabled]) {
-  background-color: #0056b3;
+  background-color: #009acd;
 }
 
 button[disabled] {
-  background-color: #999;
+  background-color: #555;
+  color: #999;
   cursor: not-allowed;
 }
 
@@ -64,7 +68,28 @@ ul {
 }
 
 li {
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between; /* ให้ชื่ออยู่ซ้าย ปุ่มอยู่ขวา */
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
   font-size: 16px;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.delete-btn {
+  padding: 5px 12px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
 }
