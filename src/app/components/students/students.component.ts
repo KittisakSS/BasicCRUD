@@ -9,6 +9,7 @@ export class StudentsComponent implements OnInit {
 
   studentName: string = '';     // สำหรับเก็บค่าจาก input
   students: string[] = [];      // เก็บรายชื่อนักเรียนทั้งหมด
+  selectedStudent: string | null = null; // นักเรียนที่เลือกสำหรับประเมิน
 
   addStudent() {
     if (this.studentName.trim()) {
@@ -16,6 +17,11 @@ export class StudentsComponent implements OnInit {
       this.studentName = '';   // เคลียร์ช่อง input
     }
   }
+
+   removeStudent(index: number) {
+    this.students.splice(index, 1);
+  }
+  
   constructor() { }
 
   ngOnInit() {
