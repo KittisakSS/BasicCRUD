@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <h4 class="mb-0">🧮 เครื่องคิดเลข (Angular 8)</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="calculate()" #calcForm="ngForm">
+        <div class="form-group">
+          <label>ตัวเลขที่ 1:</label>
+          <input type="number" [(ngModel)]="number1" name="number1" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <label>เครื่องหมาย:</label>
+          <select class="form-control" [(ngModel)]="operator" name="operator">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>ตัวเลขที่ 2:</label>
+          <input type="number" [(ngModel)]="number2" name="number2" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mr-2" [disabled]="!calcForm.valid">คำนวณ</button>
+        <button type="button" class="btn btn-secondary" (click)="clear()">ล้าง</button>
+      </form>
+
+      <div class="mt-4" *ngIf="result !== null">
+        <h5>ผลลัพธ์: {{ result }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
