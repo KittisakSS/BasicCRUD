@@ -1,14 +1,15 @@
 <div class="container">
   <h2>เพิ่มชื่อนักเรียน</h2>
-  
+
   <form (ngSubmit)="addStudent()" #studentForm="ngForm">
     <label for="name">ชื่อนักเรียน:</label>
-    <input 
-      type="text" 
-      id="name" 
-      name="name" 
-      [(ngModel)]="studentName" 
-      required>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="studentName"
+      required
+    />
 
     <button type="submit" [disabled]="!studentForm.form.valid">เพิ่ม</button>
   </form>
@@ -16,9 +17,11 @@
   <h3>รายชื่อนักเรียน</h3>
   <ul>
     <li *ngFor="let student of students; let i = index">
-  {{ student }}
-  <button class="eval-btn" [routerLink]="['/evaluate', student]">ประเมิน</button>
-  <button class="delete-btn" (click)="removeStudent(i)">ลบ</button>
-</li>
+      {{ student }}
+      <button class="eval-btn" [routerLink]="['/evaluate', student]">
+        ประเมิน
+      </button>
+      <button class="delete-btn" (click)="removeStudent(i)">ลบ</button>
+    </li>
   </ul>
 </div>
