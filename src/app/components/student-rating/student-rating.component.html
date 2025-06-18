@@ -1,0 +1,68 @@
+<div class="card mt-3">
+  <div class="card-header bg-secondary text-white">
+    <strong>ให้คะแนน: {{ studentName }}</strong>
+  </div>
+  <div class="card-body">
+    <!-- พฤติกรรม -->
+    <div class="form-group">
+      <label>พฤติกรรม:</label>
+      <div>
+        <ng-container *ngFor="let i of [1,2,3,4,5]">
+          <label class="mr-2">
+            <input
+              type="radio"
+              name="behavior"
+              [value]="i"
+              (change)="setRating('behavior', i)"
+              [checked]="ratings.behavior === i"
+            /> {{ i }}
+          </label>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- การบ้าน -->
+    <div class="form-group">
+      <label>การทำการบ้าน:</label>
+      <div>
+        <ng-container *ngFor="let i of [1,2,3,4,5]">
+          <label class="mr-2">
+            <input
+              type="radio"
+              name="homework"
+              [value]="i"
+              (change)="setRating('homework', i)"
+              [checked]="ratings.homework === i"
+            /> {{ i }}
+          </label>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- การเข้าเรียน -->
+    <div class="form-group">
+      <label>การเข้าเรียน:</label>
+      <div>
+        <ng-container *ngFor="let i of [1,2,3,4,5]">
+          <label class="mr-2">
+            <input
+              type="radio"
+              name="attendance"
+              [value]="i"
+              (change)="setRating('attendance', i)"
+              [checked]="ratings.attendance === i"
+            /> {{ i }}
+          </label>
+        </ng-container>
+      </div>
+    </div>
+
+    <hr />
+    <p class="text-muted">
+      คะแนนรวม:
+      พฤติกรรม: {{ ratings.behavior }},
+      การบ้าน: {{ ratings.homework }},
+      การเข้าเรียน: {{ ratings.attendance }}
+    </p>
+  </div>
+</div>

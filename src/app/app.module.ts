@@ -8,6 +8,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { StudentsComponent } from './components/students/students.component';
 import { CountdownComponent } from './components/countdown/countdown.component';
+import { StudentRatingComponent } from './components/student-rating/student-rating.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CountdownComponent } from './components/countdown/countdown.component';
     ProductsComponent,
     CalculatorComponent,
     StudentsComponent,
-    CountdownComponent
+    CountdownComponent,
+    StudentRatingComponent
   ],
   imports: [
     BrowserModule,
