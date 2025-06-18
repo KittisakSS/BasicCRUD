@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-student-rating',
@@ -6,14 +7,24 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./student-rating.component.css']
 })
 export class StudentRatingComponent {
-  @Input() studentName: string = 'ชื่อนักเรียน'; // รับจากภายนอกในอนาคต
+  studentName: string = 'ชื่อนักเรียน';
 
-  // คะแนนที่เลือกเก็บเป็น object ตามหัวข้อ
   ratings = {
     behavior: 0,
     homework: 0,
     attendance: 0
   };
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const name = params.get('name');
+      if (name) {
+        this.studentName = name;
+      }
+    });
+  }
 
   setRating(category: string, value: number) {
     this.ratings[category] = value;

@@ -15,6 +15,10 @@
 
   <h3>รายชื่อนักเรียน</h3>
   <ul>
-    <li *ngFor="let student of students">{{ student }}</li>
+    <li *ngFor="let student of students; let i = index">
+  {{ student }}
+  <button class="eval-btn" [routerLink]="['/evaluate', student]">ประเมิน</button>
+  <button class="delete-btn" (click)="removeStudent(i)">ลบ</button>
+</li>
   </ul>
 </div>
