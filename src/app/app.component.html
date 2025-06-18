@@ -1,0 +1,64 @@
+<!-- แบบฟอร์มกรอกข้อมูล -->
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">📋 แบบฟอร์มจัดการข้อมูล</h5>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="data">รายการ:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="data"
+            id="data"
+            placeholder="ป้อนข้อมูล"
+            required
+            [(ngModel)]="showData.data"
+          />
+        </div>
+        <div class="form-group d-flex">
+          <button
+            type="button"
+            class="btn btn-success mr-2"
+            (click)="addData()"
+            [disabled]="IsEdit === true"
+          >
+            ➕ เพิ่ม
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning"
+            (click)="updateData()"
+            [disabled]="IsEdit === false"
+          >
+            ✏️ แก้ไข
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- แสดงรายการ -->
+<di v class="container mt-4">
+  <div class="card border-info">
+    <div class="card-header bg-info text-white">
+      <h5 class="mb-0">📑 รายการข้อมูล</h5>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let item of db; let i = index" class="alert alert-info d-flex justify-content-between align-items-center">
+        <div>{{ item.data }}</div>
+        <div>
+          <button class="btn btn-success btn-sm mr-2" (click)="editData(i)">แก้ไข</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteData(i)">ลบ</button>
+        </div>
+      </div>
+
+      <div *ngIf="db.length === 0" class="alert alert-secondary text-center">
+        ไม่มีข้อมูล
+      </div>
+    </div>
+  </div>
+</div>
